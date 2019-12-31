@@ -3,20 +3,20 @@ services:
     - docker
 
 before_install:
-    - docker build -t chouaib/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t chouaib19/react-test -f ./client/Dockerfile.dev ./client
 
 scripts:
-    - docker run chouaib/react-test npm test -- --coverage
+    - docker run chouaib19/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t chouaib/multi-client ./client
-    - docker build -t chouaib/multi-server ./server
-    - docker build -t chouaib/multi-worker ./worker
-    - docker build -t chouaib/multi-nginx ./nginx
+    - docker build -t chouaib19/multi-client ./client
+    - docker build -t chouaib19/multi-server ./server
+    - docker build -t chouaib19/multi-worker ./worker
+    - docker build -t chouaib19/multi-nginx ./nginx
     # Log in to the docker hub
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push chouaib/multi-client 
-    - docker push chouaib/multi-server
-    - docker push chouaib/multi-worker
-    - docker push chouaib/nginx
+    - docker push chouaib19/multi-client 
+    - docker push chouaib19/multi-server
+    - docker push chouaib19/multi-worker
+    - docker push chouaib19/nginx
