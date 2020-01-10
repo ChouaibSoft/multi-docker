@@ -14,9 +14,9 @@ after_success:
     - docker build -t chouaib19/multi-worker ./worker
     - docker build -t chouaib19/multi-nginx ./nginx
     # Log in to the docker hub
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "anarki99;;.." | docker login -u "chouaib19" --password-stdin
     # Take those images and push them to docker hub
     - docker push chouaib19/multi-client 
     - docker push chouaib19/multi-server
     - docker push chouaib19/multi-worker
-    - docker push chouaib19/nginx
+    - docker push chouaib19/multi-nginx
